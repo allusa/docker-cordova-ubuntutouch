@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+
+  ubuntutouch-build:
+    build:
+      context: 15.04
+    cap_add:
+      - SYS_ADMIN
+    security_opt:
+      - apparmor:unconfined
+    privileged: true
+
+  ubuntutouch:
+    image: cordova-ubuntutouch:15.04
+    cap_add:
+      - SYS_ADMIN
+    security_opt:
+      - apparmor:unconfined
+    privileged: true
+    volumes:
+      - ./myapp:/app
